@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserDetail from './UserDetail'
 
 const UserList = () => {
@@ -7,15 +7,25 @@ const UserList = () => {
 
   const url = "https://dummyapi.io/data/v1/user?limit=10";
 
-  fetch(url, {
-    method: "GET",
-    headers: new Headers({
-      "app-id": "6200f750b9d3f148c5712e63",
-    }),
-  }).then(async function (response) {
-    const data = await response.json();
-    setUsers(data.data);
-  });
+  useEffect(()=>{
+    const getUsers = async () => {
+      try {
+        const res = await fetch(url, {
+          method: "GET",
+          headers: new Headers({
+            "app-id": "6200f750b9d3f148c5712e63",
+          })})
+        const data = await res.json()
+        setUsers(data.data)
+      } catch(err) {
+        console.log("err: ", err)
+      }
+    }
+
+    getUsers()
+  
+  },[])
+
 
   return (
     <>
@@ -42,7 +52,7 @@ const UserList = () => {
               </div>
               <hr className="my-2" />
               <div>
-                <p className="underline text-red-400 text-sm cursor-pointer" onClick={setDialogueBox(true)}>
+                <p className="underline text-red-400 text-sm cursor-pointer" onClick={()=>setDialogueBox(true)}>
                   Get full profile
                 </p>
               </div>

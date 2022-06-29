@@ -4,17 +4,17 @@ import { MdArrowBackIosNew } from "react-icons/md";
 
 
 const UserDetail = () => {
-  const url = "https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca";
+  // const url = "https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca";
 
-  fetch(url, {
-    method: "GET",
-    headers: new Headers({
-      "app-id": "60b1a6fbbf43a7e4bef68947",
-    }),
-  }).then(async function (response) {
-    const data = await response.json();
-    console.log(data);
-  });
+  // fetch(url, {
+  //   method: "GET",
+  //   headers: new Headers({
+  //     "app-id": "60b1a6fbbf43a7e4bef68947",
+  //   }),
+  // }).then(async function (response) {
+  //   const data = await response.json();
+  //   console.log(data);
+  // });
 
   return (
     <>
