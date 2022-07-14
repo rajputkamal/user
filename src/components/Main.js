@@ -19,6 +19,9 @@ const Main = () => {
             <AiOutlinePlus />
             &nbsp; New Task
           </Button>
+          <MobileButton>
+            <AiOutlinePlus />
+          </MobileButton>
         </Top>
         <List>
           <Task />
@@ -59,6 +62,14 @@ const Root = styled.div`
   padding: 10px;
   height: 100vh;
   position: relative;
+  @media (max-width: 768px) {
+    padding: 5px;
+  }
+  p {
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
 `;
 
 const TopTable = styled.div`
@@ -77,6 +88,20 @@ const Top = styled.div`
   height: 70px;
   position: sticky;
   top: 0;
+  @media (max-width: 768px) {
+    height: 60px;
+  }
+
+  div {
+    @media (max-width: 768px) {
+      gap: 1rem;
+      h3 {
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 `;
 
 const List = styled.div`
@@ -87,6 +112,9 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   color: #00ccff;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const BottomTable = styled.div`
@@ -105,5 +133,16 @@ const Bottom = styled.div`
   height: 70px;
   position: sticky;
   top: 0;
+  @media (max-width: 768px) {
+    height: 60px;
+  }
+`;
+
+const MobileButton = styled.button`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    color: #00ccff;
+  }
 `;
 export default Main;
